@@ -29,6 +29,12 @@ const char* Buffer::peek() const {
     return begin() + readerIndex_;
 }
 
+const char* Buffer::findCRLF() const {
+    const char kCRLF[] = "\r\n";
+    const char *crlf = std::search(peek(), beginWrite(), kCRLF, kCRLF+2);
+    return crlf == beginWrite() ? nullptr : crlf;
+}
+
 void Buffer::retrieve(size_t len) {
     if(len < readableBytes())
         readerIndex_ += len;

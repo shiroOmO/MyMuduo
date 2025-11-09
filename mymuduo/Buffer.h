@@ -15,6 +15,7 @@ public:
     size_t prependableBytes() const;
 
     const char* peek() const;
+    const char* findCRLF() const;
 
     void retrieve(size_t len);
     void retrieveAll();

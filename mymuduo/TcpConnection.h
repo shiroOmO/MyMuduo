@@ -41,6 +41,8 @@ public:
     void connectDestroyed();
 
     void send(const std::string &buf);
+    void send(Buffer &buf);
+
     void shutdown();
 
 private:
